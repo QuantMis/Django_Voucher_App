@@ -1,0 +1,210 @@
+{% extends "layout.html" %}
+{% block content %}
+	<script>
+		// VOUCHER
+		function create_voucher() {
+			$("#voucher_open_button").click(function() {
+				voucher_modal.style.display = "block";
+			});
+
+			$("#voucher_cancel").click(function() {
+				voucher_modal.style.display = "none";
+			});
+
+			$("#voucher_add_button").click(function() {
+				var url = "http://127.0.0.1:8000/admin/voucher/post";
+				$.post(url,{
+				title: $("#voucher_title").val(),
+				description: $("#voucher_desc").val(),
+				capacity: $("#voucher_cap").val(),
+				vouchtype: $("#voucher_type").val(),
+				vouchvalue: $("#voucher_value").val()
+				},
+				function(data, status) {
+					voucher_modal.style.display="none";
+					load_voucher();
+					document.getElementById("voucher_form").reset();
+				});
+			});
+		}
+		
+
+		function delete_voucher(btn){
+			var url = "http://127.0.0.1:8000/admin/voucher/del"
+			var title = btn.closest("tr").querySelector("td:nth-of-type(1)").innerHTML;
+			$.post(url,{
+				title: title
+			},function(data, status){
+				load_voucher();
+			});
+		};
+
+		function load_voucher() {
+			var url = "http://127.0.0.1:8000/admin/voucher/get"
+			$.get(url, function(data, status){
+
+				var voucher = data['res'];
+				var html ='';
+				var button = 'button';
+				var del = 'delete';
+				var delete_fn = 'delete_voucher(this)';				
+				for (var i=0;i<voucher.length;i++) {
+					html+="<tr>";
+					html+="<td>"+voucher[i].title+"</td>";
+					html+="<td>"+voucher[i].description+"</td>";
+					html+="<td>"+voucher[i].vouchtype+"</td>";
+					html+="<td>"+voucher[i].vouchvalue+"</td>";
+					html+="<td>"+voucher[i].capacity+"left </td>";
+					html+="<td><input type="+button+" value="+del+" onclick="+delete_fn+"></td>"
+					html+="</tr>"
+				}
+				$("#voucher_data").html(html);
+			});
+
+		}
+
+		// PRODUCT
+		function create_product() {
+			$("#product_open_button").click(function() {
+				product_modal.style.display = "block";
+			});
+
+			$("#product_cancel").click(function() {
+				product_modal.style.display = "none";
+			});
+
+			$("#product_add_button").click(function() {
+				var url = "http://127.0.0.1:8000/admin/product/post";
+				$.post(url,{
+				title: $("#product_title").val(),
+				price: $("#product_price").val(),
+				},
+				function(data, status) {
+					product_modal.style.display="none";
+					load_product();
+					document.getElementById("product_form").reset();
+				});
+			});
+		}	
+		
+		function delete_product(btn){
+			var url = "http://127.0.0.1:8000/admin/product/del"
+			var title = btn.closest("tr").querySelector("td:nth-of-type(1)").innerHTML;
+			$.post(url,{
+				title: title
+			},function(data, status){
+				load_product();
+			});
+		};
+
+		function load_product() {
+			var url = "http://127.0.0.1:8000/admin/product/get"
+			$.get(url, function(data, status){
+				var product = data['res'];
+				console.log(product)
+				var html ='';
+				var button = 'button';
+				var del = 'delete';
+				var delete_fn = 'delete_product(this)';				
+				for (var i=0;i<product.length;i++) {
+					html+="<tr>";
+					html+="<td>"+product[i].title+"</td>";
+					html+="<td>"+product[i].price+"</td>";
+					html+="<td><input type="+button+" value="+del+" onclick="+delete_fn+"></td>"
+					html+="</tr>"
+				}
+				$("#product_data").html(html);
+			});
+		}
+		// prepare function
+		$(document).ready(function(){
+			create_voucher();
+			load_voucher();
+			create_product();
+			load_product();
+		});
+
+	</script>	
+	<!-- Voucher Add -->
+	<div class="title">	
+		<p1>Manage Vouchers</p1>
+		<button id="voucher_open_button">New Voucher</button>
+	</div>
+	<div id="voucher_form_div" class="modal">
+		<div class="modal-content">
+			<form id="voucher_form" autocomplete="off">
+				<li>Name:<input type="text" id="voucher_title"></li><br>
+				<li>Description:<input type="text" id="voucher_desc"></li><br>
+				<li>Capacity:<input type="number" id="voucher_cap" step="1" min="0"></li><br>
+				<li>Type:
+					<select id="voucher_type">
+						<option value="OFF">OFF</option>
+						<option value="DISCOUNT">DISCOUNT</option>
+						<option value="FEE REDUCTION">FEE REDUCTION</option>
+					</select>
+				</li><br>
+				<li>Value:<input type="number" id="voucher_value" step="1" min="1"></li><br>
+			</form>
+			<button id="voucher_add_button">add</button>
+			<button id="voucher_cancel">cancel</button>
+		</div>
+	</div>
+
+	<!-- Voucher Read -->
+	<div id="voucher_table_div">
+		<table id="tableAdmin">
+			<thead>
+				<tr>
+					<th>Code</th>
+					<th>Description</th>
+					<th>Vouch Type</th>
+					<th>Value</th>
+					<th>Status</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody id="voucher_data">
+			<br>
+			</tbody>
+		</table>
+	</div>
+
+	<div class="title">
+		<p1 >Manage Product</p1>
+		<button id="product_open_button">New Product</button>
+	</div>
+	<div id="product_form_div" class="modal">
+		<div class="modal-content">
+			<form id="product_form" autocomplete="off">
+				<li>Title:<input type="text" id="product_title"></li><br>
+				<li>Price:<input type="number" id="product_price" step="1" min="1"></li><br>
+			</form>
+			<button id="product_add_button">add</button>
+			<button id="product_cancel">cancel</button>
+		</div>
+	</div>
+
+	<!-- Product Read -->
+	<div id="product_table_div">
+		<table id="tableAdmin">
+			<thead>
+				<tr>
+					<th>Product</th>
+					<th>Price</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody id="product_data">
+			<br>
+			</tbody>
+		</table>
+	</div>
+
+	<script type="text/javascript">
+		var voucher_modal = document.getElementById("voucher_form_div");
+		var product_modal = document.getElementById("product_form_div");
+	</script>
+
+
+
+{% endblock content %}

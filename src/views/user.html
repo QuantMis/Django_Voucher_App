@@ -1,0 +1,170 @@
+{% extends "layout.html" %}
+{% block content %}
+
+	<script>
+		// global variable for receipt
+		var client_item = '';
+		var client_fee = 0;
+		var client_payable = 0;
+
+		// when page reload cart re empty
+		function load_voucher() {
+			$("#apply_voucher").click(function(){
+				var url = "http://127.0.0.1:8000/admin/voucher/apply"
+				$.post(url,{
+					client : "user1",
+					code : $("#user_input_voucher").val()
+				},function(data,status){
+					if (data['status_code']=="voucher applied"){
+						client_fee = data['res'][0].client_fee;
+						client_payable = data['res'][0].client_payable;
+					}
+					load_cart();
+					list_voucher();
+					alert(data['status_code'])
+					$("#user_input_voucher").val("")
+				});
+			});
+		}
+
+		function list_voucher() {
+			var url = "http://127.0.0.1:8000/admin/voucher/get"
+			$.get(url, function(data, status){
+				var voucher = data['res'];
+				var html ='';
+				var p1 = 'v1';
+				var p2 = 'v2';			
+				for (var i=0;i<voucher.length;i++) {
+					html+="<tr>"
+					html+="<td>"+voucher[i].title+"</td>";
+					html+="<td>"+voucher[i].capacity+"x</td>";
+					html+="<td>"+voucher[i].description+"</td>";
+					html+="</tr>"
+				}
+				$("#avl_vouchers").html(html);	
+			});
+		}
+
+		function add_to_cart(btn) {
+			var url = "http://127.0.0.1:8000/admin/product/cart/post"
+			var item =  btn.closest("button").querySelector("p").innerHTML
+			var price = btn.closest("button").querySelector("p:nth-of-type(2)").innerHTML
+			var client = "user1"
+			$.post(url,{
+				client: client,
+				item: item,
+				price: price
+			},function(data,status){
+				alert("added to cart: "+ item)
+				var cart = data
+           		client_item = cart['res'][0].client_item;
+           		client_fee = cart['res'][0].client_fee;
+           		client_payable = cart['res'][0].client_payable;
+           		load_cart()
+			});
+		}
+
+		function load_cart() {
+			var total =client_payable + client_fee
+			$("#client_item").text(client_item)
+			$("#client_payable").text(client_payable)
+			$("#client_fee").text(client_fee)
+			$("#client_total").text(total)
+		}
+
+		function reset_cart() {
+			$("#cart_reset").click(function() {
+				var url = "http://127.0.0.1:8000/admin/product/cart/del"
+				$.get(url, function(data,status) {
+					alert(data['status_code'])
+					$("#client_item").text("")
+					$("#client_payable").text("")
+					$("#client_fee").text("")
+					$("#client_total").text("")
+				})
+			});
+		}
+
+		function load_product() {
+			var url = "http://127.0.0.1:8000/admin/product/get"
+			$.get(url, function(data, status){
+				var product = data['res'];
+				var html ='';
+				var button = 'button';
+				var cart = 'cart';
+				var cart_fn = 'add_to_cart(this)';	
+				var p1 = 'p1';
+				var p2 = 'p2';			
+				for (var i=0;i<product.length;i++) {
+					html+="<button onclick="+cart_fn+"><p class="+p1+">"+product[i].title+"</p>";
+					html+="<p class="+p2+">"+product[i].price+"</p>"
+					html+="<p class="+p2+">USDT</p></button>"
+				}
+				$(".left").html(html);
+			});
+		}
+
+		function reset_cart_on_load() {
+			var url = "http://127.0.0.1:8000/admin/product/cart/del"
+			$.get(url, function(data,status) {
+				$("#client_item").text("")
+				$("#client_payable").text("")
+				$("#client_fee").text("")
+				$("#client_total").text("")
+			})
+		}
+
+		$(document).ready(function(){
+			$("#proceed").click(function(){
+			alert("Function Not Implemented on this Version!")
+			});
+		})
+		
+
+		$(document).ready(function() {
+			list_voucher();
+			load_voucher();
+			load_product();
+			reset_cart();
+			reset_cart_on_load();
+			load_cart();
+		})
+		// modal for vouchers
+		var voucher_modal = document.getElementById("voucher_modal");
+	</script>	
+	<div class="row">
+		<h1 id="leftH1">Available Plans</h1>
+		<div class="left">
+		</div>
+		<div class="right">
+			<div class="cart">
+				<div class="head">
+					<li>Receipt</li>
+					<li id="rst"><button class="appbtn" id="cart_reset">reset cart</button></li>
+				</div>
+				<li>Item:<p2 id="client_item">empty</p2></li>
+				<li>Price:<p2 id="client_payable" >empty</p2> USDT</li>
+				<li>Processing Fee:<p2 id="client_fee" >empty</p2> USDT</li>
+				<li>Total:<p2 id="client_total" >empty</p2> USDT</li>
+			</div>
+
+			<div class="voucher_div">
+				<li><input type="text" id="user_input_voucher" value="" autocomplete="off"></li>
+				<li><button class="appbtn" id="apply_voucher" value="">apply</button></li>
+				<li><button id="proceed">Proceed</button></li>
+			</div>
+			<div class="voucher_list">
+				<p1>Redeem Your Vouchers</p1>
+					<table>
+						<tbody id="avl_vouchers">
+						</tbody>
+					</table>
+			</div>
+		</div>
+	</div>
+	
+
+
+
+
+{% endblock content %}

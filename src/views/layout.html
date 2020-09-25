@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv ="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'main.css' %}">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> 
+</head>
+<nav>
+    <ul>
+        <li><a href="/user">User Interface</a></li>
+        <li><h1>TigerLab Python Test</h1><li>
+        <li><a href="/admin">System Interface</a></li>
+    </ul>
+</nav>
+<body>
+    <div class="content">
+   
+    {% block content %}{% endblock content %}
+
+    </div>
+</body>
+</html>

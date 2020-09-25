@@ -1,0 +1,276 @@
+body {
+	margin: 0px;
+	font-family: Calibri;
+	background-color: #F1F4FFFF;
+}
+
+nav {}
+
+nav > ul {
+	width: 95%;
+	text-align: center;
+}
+
+nav > ul > li {
+	display: inline-block;
+	*display: inline;
+	margin-left: 10px;
+}
+
+nav > ul > li > a, 
+.right > a {
+	text-decoration: none;
+	transition: 0.3s;
+	opacity: 1;
+	color: #00203FFF;
+	font-size: 15px;
+	cursor: pointer;
+}
+
+nav > ul > li > a:hover {
+	opacity: 0.5;
+}
+
+nav > ul > li > h1 {
+	margin-right: 10px;
+	margin-left: 10px;
+	color: #00203FFF;
+	text-shadow: 2px 2px 5px #A2A2A1FF;
+}
+
+.content {
+	width: 70%;
+	height: 90%;
+	margin: auto;
+	border: 0.5px solid;
+	border-color: gray;
+	background-color: white;
+}
+
+.row {
+	padding:30px 30px 30px 30px;
+}
+
+.row:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.row > #leftH1 {
+	font-size: 20px;;
+	margin: 20px;
+}
+
+.row > #rightH1 {
+	float: right;
+	font-size: 20px;;
+	margin: 20px;
+}
+.left {
+	float: left;
+	width: 56%;
+}
+
+.left > button {
+	width: 90%;
+	height: 50px;
+	border: solid 0.1px;
+	border-color: silver;
+	border-radius: 5px;
+	margin-bottom: 10px;
+}
+
+.left > button:hover {
+	background-color: white;
+	transition: 0.4s;
+
+}
+.left > button > .p1 {
+	font-size: 12px;
+	float: left;
+	padding-left: 10px;
+}
+
+.left > button > .p2 {
+	font-size: 12px;
+	float: right;
+	padding-right: 10px;
+}
+
+.right {
+	float: right;
+	width: 43%;
+}
+
+.right > div {
+	margin-bottom: 5px;
+}
+
+.right > .cart {
+	padding-bottom: 10px;
+	border: solid 0.1px;
+	border-color: silver;
+}
+
+.cart > .head {
+	width: 100%;
+	height: 20px;
+	font-size: 12px;
+	background-color: silver;
+}
+
+.cart > li {
+	padding: 0px 5px 5px 5px;
+	font-size: 14px;
+	list-style-type: none;
+	margin-bottom: -5px;
+}	
+
+.head > li {
+	padding-left: 2px;
+	list-style-type: none;
+	display: inline-block;
+} 
+
+#rst {
+	float: right;
+}
+.voucher_div {
+	width:100%;
+}
+.voucher_div > li{
+	list-style-type: none;
+}
+
+.voucher_div > li > input {
+	height:15px;
+	width: 76%;
+	float: left;
+	border:solid 0.1px;
+	border-color: silver;
+}
+
+#proceed {
+	width: 100%;
+	height: 30px;
+	margin-top:5px;
+}
+
+#apply_voucher{
+	width: 20%;
+	float: right;
+}
+
+.appbtn {
+	margin-top: -2px;
+	height: 19px;
+	font-size: 12px;
+	width:100%;
+	margin:	auto;
+}
+
+.proceed {
+	margin-top: 20px;
+	width: 100%;
+}
+
+.proceed > li {
+	list-style-type:none;
+}
+
+.proceed > li > p1 {
+	font-size: 12px;
+	cursor: pointer;
+}
+
+.proceed > li > p1:hover {
+	color: lightblue;
+}
+
+.voucher_list {
+	width: 100%;
+	border: solid 0.1px;
+	border-color: silver;
+	padding-bottom: 10px;
+}
+.voucher_list > p1 {
+	margin-top: 5px;
+	font-size: 12px;
+	width: 100%;
+	margin-left: 32%;
+
+}
+
+.voucher_list > table {
+	width: 96%;
+	border:solid 0.1px;
+	border-color: silver;
+	border-radius: 4px;
+	margin-top: 10px;
+	margin-left: 6px;
+	margin-right: 5px;
+}
+
+.voucher_list > table > tbody > tr > td {
+	padding-right: 5px;
+	padding-left: 5px;
+	padding-bottom: 5px;
+	font-size: 14px;
+}
+
+#tableAdmin {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 95%;
+  margin: auto;
+  text-align: center;
+  font-size: 14px;
+  margin-bottom: 30px;
+  margin-top: 0px;
+}
+
+#tableAdmin td, #tableAdmin th {
+  border: 1px solid #ddd;
+  padding: 2px;
+}
+
+#tableAdmin tr:nth-child(even){background-color: #f2f2f2;}
+
+#tableAdmin tr:hover {background-color: #ddd;}
+
+#tableAdmin th {
+  padding-top: 4px;
+  padding-bottom: 4px;
+  text-align: center;
+  background-color: lightblue;
+  color: white;
+}
+
+.title {
+	width: 100%;
+	margin-top: 20px;
+	margin-left: 20px;
+}
+.modal {
+	display: none;
+	position: fixed;
+	z-index :1;
+	left:0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgb(0,0,0);
+	background-color: rgba(0,0,0,0.4);
+
+}
+.modal-content {
+	background-color: #fefefe;
+	margin: 5% auto;
+	padding: 3px;
+	border:1px solid #888;
+	width: 40%;
+
+}
+
