@@ -60,12 +60,14 @@ nav > ul > li > h1 {
 .row > #leftH1 {
 	font-size: 20px;;
 	margin: 20px;
+	color: #659DBD;
 }
 
 .row > #rightH1 {
 	float: right;
-	font-size: 20px;;
+	font-size: 20px;
 	margin: 20px;
+	
 }
 .left {
 	float: left;
@@ -76,14 +78,15 @@ nav > ul > li > h1 {
 	width: 90%;
 	height: 50px;
 	border: solid 0.1px;
-	border-color: silver;
+	color: white;
+	background-color: #659DBD;
 	border-radius: 5px;
 	margin-bottom: 10px;
 }
 
 .left > button:hover {
-	background-color: white;
-	transition: 0.4s;
+	background-color: lightblue;
+	transition: 0.1s;
 
 }
 .left > button > .p1 {
@@ -110,17 +113,19 @@ nav > ul > li > h1 {
 .right > .cart {
 	padding-bottom: 10px;
 	border: solid 0.1px;
-	border-color: silver;
+	border-color: #659DBD;
+	background-color: white;
 }
 
 .cart > .head {
 	width: 100%;
 	height: 20px;
 	font-size: 12px;
-	background-color: silver;
+	background-color: #659DBD;
 }
 
 .cart > li {
+	color: black;
 	padding: 0px 5px 5px 5px;
 	font-size: 14px;
 	list-style-type: none;
@@ -148,13 +153,24 @@ nav > ul > li > h1 {
 	width: 76%;
 	float: left;
 	border:solid 0.1px;
-	border-color: silver;
+	border-color: #659DBD;
+	background-color: white;
 }
 
 #proceed {
 	width: 100%;
 	height: 30px;
 	margin-top:5px;
+	background-color: #659DBD;
+	border-color: #659DBD;
+	border-style: none;
+	box-shadow: none;
+	border-radius: 10px;
+}
+
+#proceed:hover {
+	background-color: lightblue;
+	transition: 0.1s;
 }
 
 #apply_voucher{
@@ -168,6 +184,29 @@ nav > ul > li > h1 {
 	font-size: 12px;
 	width:100%;
 	margin:	auto;
+	background-color: white;
+	border-style: none;
+	border-color: #659DBD;
+	border-width: 1px;
+	border-style: solid;
+}
+
+.appbtn:hover, .appbtn2:hover {
+	background-color: lightblue;
+	transition: 0.1s;
+}
+
+.appbtn2 {
+	margin-top: 20px;
+	height: 19px;
+	font-size: 12px;
+	width:40px%;
+	margin:	auto;
+	background-color: white;
+	border-style: none;
+	border-color: #659DBD;
+	border-width: 1px;
+	border-style: solid;
 }
 
 .proceed {
@@ -191,7 +230,8 @@ nav > ul > li > h1 {
 .voucher_list {
 	width: 100%;
 	border: solid 0.1px;
-	border-color: silver;
+	border-radius: 10px;
+	border-color: #659DBD;
 	padding-bottom: 10px;
 }
 .voucher_list > p1 {
@@ -205,7 +245,7 @@ nav > ul > li > h1 {
 .voucher_list > table {
 	width: 96%;
 	border:solid 0.1px;
-	border-color: silver;
+	border-color: #659DBD;
 	border-radius: 4px;
 	margin-top: 10px;
 	margin-left: 6px;
@@ -222,36 +262,53 @@ nav > ul > li > h1 {
 #tableAdmin {
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   border-collapse: collapse;
-  width: 95%;
+  width: 80%;
   margin: auto;
   text-align: center;
-  font-size: 14px;
+  font-size: 12px;
   margin-bottom: 30px;
   margin-top: 0px;
+  border:solid 0.1px;
+
 }
 
 #tableAdmin td, #tableAdmin th {
   border: 1px solid #ddd;
   padding: 2px;
+  font-size: 12px;
 }
 
 #tableAdmin tr:nth-child(even){background-color: #f2f2f2;}
 
-#tableAdmin tr:hover {background-color: #ddd;}
+#tableAdmin tr:hover {background-color: lightblue;}
 
 #tableAdmin th {
   padding-top: 4px;
   padding-bottom: 4px;
   text-align: center;
-  background-color: lightblue;
+  background-color: #659DBD;
   color: white;
 }
 
-.title {
+.title { 
 	width: 100%;
 	margin-top: 20px;
-	margin-left: 20px;
+	margin-left: 40%;
 }
+
+.title > p1 {
+	font-size: 12px;
+}
+
+.title > button {
+	font-size: 12px;	
+}
+#voucher_form,#product_form > input {
+	width: 80%;
+	margin-bottom: 10px;
+}
+
+
 .modal {
 	display: none;
 	position: fixed;
@@ -263,14 +320,19 @@ nav > ul > li > h1 {
 	overflow: auto;
 	background-color: rgb(0,0,0);
 	background-color: rgba(0,0,0,0.4);
-
 }
 .modal-content {
 	background-color: #fefefe;
 	margin: 5% auto;
-	padding: 3px;
+	font-size: 12px;
+	padding: 5px 5px 5px 5px;
+	padding-left: 20px;
+	padding-top: 10px;
 	border:1px solid #888;
-	width: 40%;
-
+	border-radius: 10px;
+	width: 20%;
 }
 
+.modal-content > form > li {
+	list-style-type: none;
+}
