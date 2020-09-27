@@ -17,6 +17,8 @@
 Run command <code>pip install -r requirements.txt</code> or <code>pip3 install -r requirements.txt</code> if you're on python3. </br>
 
 <h2>Step 3 : Execute and Enjoy</h2>
-Run django <code>python manage.py runserver</code> or <code>python3 manage.py runserver</code> if you're on python3. </br>
+<code>cd</code> to source code <code>src</code> inside the tigerlab_test_voucher_app directory.</br> 
+Run django </br>
+<code>python manage.py runserver</code> or <code>python3 manage.py runserver</code> if you're on python3. </br>
 
 Go to User Interface by opening this [address](http://127.0.0.1:8000/) on your browser. 
