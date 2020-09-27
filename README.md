@@ -6,7 +6,7 @@
 <b>Linux</b> : </br>
 &nbsp;&nbsp;&nbsp;&nbsp;Open your terminal and direct to your development directory
 
-<code> &nbsp;&nbsp;&nbsp;&nbsp;git clone https://github.com/QuantMis/tigerlab_test_voucher_app </code></br>
+&nbsp;&nbsp;&nbsp;&nbsp;<code>git clone https://github.com/QuantMis/tigerlab_test_voucher_app </code></br>
 
 
 <b>Windows</b> :</br>
