@@ -19,10 +19,7 @@
 Run command <code>pip install -r requirements.txt</code> or <code>pip3 install -r requirements.txt</code> if you're on python3. </br>
 
 <h2>Step 3 : Execute and Enjoy</h2>
-<code>cd</code> to source code <b>/src</b> inside the tigerlab_test_voucher_app directory.</br> 
-
-
-Run django </br>
+<code>cd</code> to source code <b>/src</b> inside the tigerlab_test_voucher_app directory and run django via this command: </br> 
 
 <code>python manage.py runserver</code> or <code>python3 manage.py runserver</code> if you're on python3. </br>
 
