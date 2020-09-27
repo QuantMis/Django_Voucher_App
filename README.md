@@ -18,4 +18,5 @@ Run command <code>pip install -r requirements.txt</code> or <code>pip3 install -
 
 <h2>Step 3 : Execute and Enjoy</h2>
 Run django <code>python manage.py runserver</code> or <code>python3 manage.py runserver</code> if you're on python3. </br>
-Go to User Interface by opening this [http://127.0.0.1:8000/](http://127.0.0.1:8000/) on your browser. 
+
+Go to User Interface by opening this [address](http://127.0.0.1:8000/) on your browser. 
