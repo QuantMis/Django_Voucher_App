@@ -14,8 +14,7 @@
 
 <h2>Step 2 : Install Dependencies</h2>
 <code>cd</code> to project folder: <code>your/path/to/tigerlab_test_voucher_app</code></br>
-
-
+&nbsp;\
 Run command <code>pip install -r requirements.txt</code> or <code>pip3 install -r requirements.txt</code> if you're on python3. </br>
 
 <h2>Step 3 : Execute and Enjoy</h2>
