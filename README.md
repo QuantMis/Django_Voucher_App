@@ -2,7 +2,7 @@
 
 <h1>Running the Programme</h1>
 
-<p>Step 1 : Cloning the Repositories</p> </br>
+<h2>Step 1 : Cloning the Repositories</h2> </br>
 Linux : </br>
 &nbsp;&nbsp;&nbsp;&nbsp;Open your terminal and direct to your development directory
 
@@ -12,6 +12,6 @@ Linux : </br>
 Windows :</br>
 &nbsp;&nbsp;&nbsp;&nbsp;Download && extract the zip version of the codes </br>
 
-<p>Step 2 : Install Dependencies</p>
+<h2>Step 2 : Install Dependencies</h2>
 
-<p>Step 3 : Execute and Enjoy</p>
+<h2>Step 3 : Execute and Enjoy</h2>
