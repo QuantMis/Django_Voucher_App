@@ -10,7 +10,7 @@
 
 
 <b>Windows</b> :</br>
-&nbsp;&nbsp;&nbsp;&nbsp;Download && extract the zip version of the codes </br>
+&nbsp;&nbsp;&nbsp;&nbsp;[Download](https://github.com/QuantMis/tigerlab_test_voucher_app/archive/master.zip) && extract the zip version of the codes </br>
 
 <h2>Step 2 : Install Dependencies</h2>
 
