@@ -4,13 +4,13 @@ Running the Programme
 
 Step 1 : Cloning the Repositories </br>
 Linux : </br>
-  Open your terminal and direct to your development directory
+__Open your terminal and direct to your development directory
 
-  <mark> git clone https://github.com/QuantMis/tigerlab_test_voucher_app </mark></br>
+<code> git clone https://github.com/QuantMis/tigerlab_test_voucher_app </code></br>
 
 
 Windows :</br>
-  Download && extract the zip version of the codes </br>
+__Download && extract the zip version of the codes </br>
 
 Step 2 : Install Dependencies
 
